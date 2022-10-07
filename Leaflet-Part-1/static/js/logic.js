@@ -18,16 +18,16 @@ function createFeatures (earthquakesData) {
             weight: 1,
 
             // magnitude of the earthquake determines the radius
-            radius: Math.sqrt(feature.properties.mag) * 4,
-            // radius: feature.properties.mag * 10000,
+            // radius: Math.sqrt(feature.properties.mag) * 4,
+            radius: feature.properties.mag * 10000,
 
             // depth of earthquake determines fill color
             fillColor: getColor(feature.geometry.coordinates[2]),
         }
 
         // create each circle
-        return new L.CircleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], options);
-        // return new L.Circle([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], options);
+        // return new L.CircleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], options);
+        return new L.Circle([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], options);
 
     };
 
